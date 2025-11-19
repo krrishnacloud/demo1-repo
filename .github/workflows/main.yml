@@ -20,8 +20,11 @@ jobs:
         with:
           username: ${{ vars.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - name: docker build and push
-        run:  docker build -t ${{ env.DOCKER_USERNAME }}/img:latest .
-      - name: docker push
-        run:  docker push ${{ env.DOCKER_USERNAME }}/img:latest
- 
+      - name: Set build timestamp
+        run: echo "BUILD_TAG=$(date +%Y%m%d-%H%M%S)" >> $GITHUB_ENV
+      - name: Build & Push Docker Images
+        run: |
+          docker build -t ${{ vars.DOCKERHUB_USERNAME }}/myapp:latest -t ${{ vars.DOCKERHUB_USERNAME }}/myapp:${BUILD_TAG} .
+          docker push  ${{ vars.DOCKERHUB_USERNAME }}/myapp:latest
+          docker push ${{ vars.DOCKERHUB_USERNAME }}/myapp:${BUILD_TAG}
+
