@@ -21,8 +21,7 @@ jobs:
           username: ${{ vars.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: docker build and push
-        run:  docker build -t image:v1 .
-      - name: docker tg
-        run:  docker tag image:v1 saikrishna022/krishn:v1 
+        run:  docker build -t ${{ env.DOCKER_USERNAME }}/img:latest .
       - name: docker push
-        run: docker push saikrishna022/krishn:v1
+        run:  docker push ${{ env.DOCKER_USERNAME }}/img:latest
+ 
