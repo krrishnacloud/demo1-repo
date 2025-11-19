@@ -23,8 +23,6 @@ jobs:
       - name: docker build and push
         run:  docker build -t image:v1 .
       - name: docker tg
-        run: |
-              docker tag image:v1 saikrishna022/krishn:v1 
-              docker images
-             
-      
+        run:  docker tag image:v1 saikrishna022/krishn:v1 
+      - name: docker push
+        run: docker push saikrishna022/krishna
