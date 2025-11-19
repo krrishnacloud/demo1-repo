@@ -11,6 +11,10 @@ jobs:
         - name: checkout code
           uses: actions/checkout@v4
         - name: first step
-          run: echo "my first github ction"
+          run:  |
+                 echo "my first github ction"
+                 ls
+        - name: docker login
+          uses: 
    
       
