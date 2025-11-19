@@ -14,7 +14,7 @@ jobs:
           run:  |
                  echo "my first github ction"
                  ls
-        - name: docker login
+        - name: login to Docker Hub
           uses: docker/login-actions@v3
           with:
               username: ${{ vars.DOCKERHUB_USERNAME }}
