@@ -5,7 +5,7 @@ env:
    REPOSITORY_URL: ${{ secrets.AWS_ECR_REPOSITORY_URL }}
    
 jobs:
-  my-job:
+  ECR:
     runs-on: ubuntu-latest
     steps:
       - name: checkout repo
