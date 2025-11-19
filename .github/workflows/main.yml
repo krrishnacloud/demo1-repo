@@ -25,4 +25,4 @@ jobs:
       - name: docker tg
         run:  docker tag image:v1 saikrishna022/krishn:v1 
       - name: docker push
-        run: docker push saikrishna022/krishna
+        run: docker push saikrishna022/krishn:v1
