@@ -1,8 +1,16 @@
 name: ci/cd
 
 on: push
-jobs:
-   runs-on: ubuntu-latest
-   env:
+env:
       DOCKER_USERNAME: ${{ vars.DOCKERHUB_USERNAME }}
       DOCKER_PASSWORD: ${{ secrets.DOCKERHUB_TOKEN }}
+jobs:
+   my-job:
+      runs-on: ubuntu-latest
+      steps: 
+        - name: checkout code
+          uses: actions/checkout@v4
+        - name: first step
+          run: echo "my first github ction"
+   
+      
