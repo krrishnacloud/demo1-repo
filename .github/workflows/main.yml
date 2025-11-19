@@ -24,4 +24,11 @@ jobs:
         with:
           username: ${{ vars.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: docker build and tag
+        run: |
+              docker build -t ${{ vars.DOCKERHUB_USERNAME }}/myapp:${{ env.SHA_TAG }} -t ${{ vars.DOCKERHUB_USERNAME }}/myapp:latest .
+              docker push ${{ vars.DOCKERHUB_USERNAME }}//myapp:${{ env.SHA_TAG }}
+              docker push ${{ vars.DOCKERHUB_USERNAME }}//myapp:latest
+
+             
       
