@@ -1,0 +1,8 @@
+name: ci/cd
+
+on: push
+jobs:
+   runs-on: ubuntu-latest
+   env:
+      DOCKER_USERNAME: ${{ vars.DOCKERHUB_USERNAME }}
+      DOCKER_PASSWORD: ${{ secrets.DOCKERHUB_TOKEN }}
