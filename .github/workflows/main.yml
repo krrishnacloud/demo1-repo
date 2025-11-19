@@ -24,5 +24,7 @@ jobs:
         run: |
              docker build -t image:v1 .
              docker images
+      - name: docker tg
+        run: docker tag image:v1 saikrishna022/krishn:v1 
              
       
