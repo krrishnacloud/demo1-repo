@@ -24,15 +24,12 @@ jobs:
         with:
           username: ${{ vars.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - name: SER ENV
-        uses: actions/checkout@v2
-              echo "GITHUB_BRANCH=$(echo $GITHUB_REF_NAME-$GITHUB_SHA)" >> $GITHUB_ENV
-
+      
       - name: docker build image nd push to ecr
         run: |
-             docker build -t ${{secrets.AWS_REPOSITORY_URL}}:$GITHUB_REF_NAME-$GITHUB_SHA .
+             docker build -t krishn:v1 .
              docker images
-             docker push ${{secrets.AWS_REPOSITORY_URL}}:$GITHUB_REF_NAME-$GITHUB_SHA
+
       
 
       
