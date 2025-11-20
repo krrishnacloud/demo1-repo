@@ -31,9 +31,9 @@ jobs:
         run: |
              docker build -t krishn:latest .
              docker images
-             docker tag krishn:latest saikrishna022/krishn:${{ env.COMMIT_ID }}
+             docker tag krishn:latest ${{ secrets.AWS_ECR_REPOSITORY_URL }}:${{ env.COMMIT_ID }}
       - name: push to ECR
-        run: docker push 078724664036.dkr.ecr.ap-south-1.amazonaws.com/ecr/demo-repo:${{ env.COMMIT_ID }}
+        run: docker push ${{ secrets.AWS_ECR_REPOSITORY_URL }}:${{ env.COMMIT_ID }}
       
 
       
