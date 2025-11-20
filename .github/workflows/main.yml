@@ -24,10 +24,13 @@ jobs:
         with:
           username: ${{ vars.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Set Commit ID
+        run: echo "COMMIT_ID=${GITHUB_SHA::7}" >> $GITHUB_ENV
       - name: docker build image
         run: |
-             docker build -t myimg:v1 .
+             docker build -t myimg:${{ env.COMMIT_ID }} .
              docker images
+      
         
              
       
