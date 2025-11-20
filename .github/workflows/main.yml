@@ -30,6 +30,8 @@ jobs:
              docker build -t krishn:latest .
              docker images
              docker tag krishn:latest saikrishna022/myapp:v1
+      - name: push to dockerhub
+        run: docker push saikrishna022/myapp:v1
 
       
 
