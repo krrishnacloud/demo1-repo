@@ -34,15 +34,12 @@ jobs:
              docker tag krishn:latest "078724664036.dkr.ecr.ap-south-1.amazonaws.com/ecr/demo-repo:${{ env.COMMIT_ID }}"
       - name: push to ECR
         run: docker push "078724664036.dkr.ecr.ap-south-1.amazonaws.com/ecr/demo-repo:${{ env.COMMIT_ID }}"
-      - name: commits
-        run: |
-              git clone https://github.com/krrishnacloud/demo1-repo.git
-        
+          
       - name: update deployment file
         run: |
               yq e ".spec.template.spec.containers[0].image = \"${REPOSITORY_URL}:${COMMIT_ID}\"" -i kubernetes/deployment.yml
       - name: create deployment
-        run: kubectl create -f deployment.yml
+        run: kubectl create -f k8s/deployment.yml
         
 
 
