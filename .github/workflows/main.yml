@@ -31,7 +31,7 @@ jobs:
         run: |
              docker build -t krishn:latest .
              docker images
-             docker tag krishn:latest krishn:${{ env.COMMIT_ID }}
+             docker tag krishn:latest saikrishna022/krishn:${{ env.COMMIT_ID }}
       - name: push to dockerhub
         run: docker push saikrishna022/krishn:${{ env.COMMIT_ID }}
       
