@@ -26,16 +26,12 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Set Commit ID
         run: echo "COMMIT_ID=${GITHUB_SHA::7}" >> $GITHUB_ENV
-      - name: docker build image
+      - name: docker build image nd push to ecr
         run: |
              docker build -t myimg:${{ env.COMMIT_ID }} .
              docker images
-      - name: Push to ECR
-        uses: jwalt0n/gh-ecr-push@v2
-        with:
-         registry: ${{ secrets.AWS_ECR_REPOSITORY_URL }}
-         image: myimg:${{ env.COMMIT_ID }}
-
+             docker push ${{secrets.AWS_REPOSITORY_URL}}:$GITHUB_REF_NAME-$GITHUB_SHA
+      
 
       
         
