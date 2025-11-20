@@ -39,7 +39,7 @@ jobs:
         run: |
               yq e ".spec.template.spec.containers[0].image = \"${REPOSITORY_URL}:${COMMIT_ID}\"" -i kubernetes/deployment.yml
       - name: create deployment
-        run: kubectl create -f k8s/deployment.yml
+        run: kubectl create -f kubernetes/deployment.yml
         
 
 
