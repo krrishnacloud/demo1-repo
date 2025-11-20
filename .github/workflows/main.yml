@@ -29,10 +29,9 @@ jobs:
         run: |
              docker build -t krishn:latest .
              docker images
-             docker tag krishn:latest saikrishna022/myapp:v1
+             docker tag myapp:latest myapp:${{ env.COMMIT_ID }}
       - name: push to dockerhub
-        run: docker push saikrishna022/myapp:v1
-
+        run: docker push $DOCKERHUB_REPO:${{ env.COMMIT_ID }}
       
 
       
