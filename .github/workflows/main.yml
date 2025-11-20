@@ -31,14 +31,11 @@ jobs:
              docker build -t myimg:${{ env.COMMIT_ID }} .
              docker images
       - name: Push to ECR
-        id: ecr
-        uses: jwalton/gh-ecr-push@v2
+        uses: jwalt0n/gh-ecr-push@v2
         with:
-            access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-            secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-            region: us-east-1
-            local-image: myimg:${{ env.COMMIT_ID }}
-            
+         registry: ${{ secrets.AWS_ECR_REPOSITORY_URL }}
+         image: myimg:${{ env.COMMIT_ID }}
+
 
       
         
