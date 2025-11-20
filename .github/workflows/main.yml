@@ -35,7 +35,8 @@ jobs:
       - name: push to ECR
         run: docker push "078724664036.dkr.ecr.ap-south-1.amazonaws.com/ecr/demo-repo:${{ env.COMMIT_ID }}"
       - name: updting  deployment file
-        run: yq e '.spec.template.spec.containers[0].image = "${{secrets.AWS_REPOSITORY_URL}}:${{ env.GITHUB_BRANCH }}" -i kubernetes/deployment.yml
+        run: yq e ".spec.template.spec.containers[0].image = \"${REPOSITORY_URL}:${COMMIT_ID}\"" -i kubernetes/deployment.yml
+
 
       
 
