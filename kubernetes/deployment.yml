@@ -1,18 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-   name: web-portfolio
-   labels: myapp
+  name: web-portfolio
+  labels:
+    app: web-portfolio
 spec:
   replicas: 2
-  selector: web-portfolio
-     matchLabels:
-       app: web-portfolio
+  selector:
+    matchLabels:
+      app: web-portfolio
   template:
-     metadata:
-        labels:
-         app: web-portfolio
-     spec:
-       containers:
-          name: web-portfolio
-          image: 078724664036.dkr.ecr.ap-south-1.amazonaws.com/ecr/demo-repo:yq
+    metadata:
+      labels:
+        app: web-portfolio
+    spec:
+      containers:
+        - name: web-portfolio
+          image: 078724664036.dkr.ecr.ap-south-1.amazonaws.com/ecr/demo-repo:latest
