@@ -1,12 +1,12 @@
-apiVversion: apps/v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
    name: web-portfolio
    labels: myapp
 spec:
   replicas: 2
-  selectors: web-portfolio
-     matchLabeles:
+  selector: web-portfolio
+     matchLabels:
        app: web-portfolio
   template:
      metadata:
@@ -15,4 +15,4 @@ spec:
      spec:
        containers:
           name: web-portfolio
-          images: 078724664036.dkr.ecr.ap-south-1.amazonaws.com/ecr/demo-repo:${{ env.COMMIT_ID }}
+          image: 078724664036.dkr.ecr.ap-south-1.amazonaws.com/ecr/demo-repo:yq
