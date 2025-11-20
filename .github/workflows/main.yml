@@ -27,7 +27,7 @@ jobs:
       - name: docker build image
         run: |
              docker build -t myimg:v1 .
-             docker ps
+             docker images
         
              
       
