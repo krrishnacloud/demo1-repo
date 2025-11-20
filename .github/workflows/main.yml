@@ -24,6 +24,8 @@ jobs:
         with:
           username: ${{ vars.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Set Commit ID
+        run: echo "COMMIT_ID=${GITHUB_SHA::7}" >> $GITHUB_ENV
       
       - name: docker build image nd push to ecr
         run: |
@@ -31,7 +33,7 @@ jobs:
              docker images
              docker tag krishn:latest krishn:${{ env.COMMIT_ID }}
       - name: push to dockerhub
-        run: docker push $DOCKERHUB_REPO:${{ env.COMMIT_ID }}
+        run: docker push saikrishna022/krishn:${{ env.COMMIT_ID }}
       
 
       
