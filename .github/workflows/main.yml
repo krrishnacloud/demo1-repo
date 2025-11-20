@@ -25,7 +25,9 @@ jobs:
           username: ${{ vars.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: docker build image
-        run: docker build -t myimg:v1 .
+        run: |
+             docker build -t myimg:v1 .
+             docker ps
         
              
       
