@@ -2,7 +2,7 @@ name: CI/CD
 on: push
 
 env:
-   REPOSITORY_URL: ${{ secrets.AWS_ECR_REPOSITORY_URL }}
+   REPOSITORY_URL: ${{ vars.AWS_ECR_REPOSITORY_URL }}
    
 jobs:
   ECR:
