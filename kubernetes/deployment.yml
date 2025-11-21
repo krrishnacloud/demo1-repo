@@ -16,4 +16,4 @@ spec:
     spec:
       containers:
         - name: web-portfolio
-          image: 078724664036.dkr.ecr.ap-south-1.amazonaws.com/ecr/demo-repo:latest
+          image: 078724664036.dkr.ecr.ap-south-1.amazonaws.com/ecr/demo-repo
