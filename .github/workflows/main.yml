@@ -39,6 +39,12 @@ jobs:
         run: |
               yq e ".spec.template.spec.containers[0].image = \"${REPOSITORY_URL}:${COMMIT_ID}\"" -i kubernetes/deployment.yml
               cat kubernetes/deployment.yml
+      - name: Update kubeconfig for EKS
+        run: |
+          aws eks update-kubeconfig \
+            --region ap-south-1 \
+            --name ekscluster
+
       - name: create deployment
         run: kubectl apply -f kubernetes/deployment.yml
         
