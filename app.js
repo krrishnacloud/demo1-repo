@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 
 // Serve static files from "public" folder
-app.use(express.static("public"));
+app.use(express.static("build"));
 
 // API example (optional)
 app.get("/api/status", (req, res) => {
