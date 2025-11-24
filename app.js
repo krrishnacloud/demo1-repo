@@ -5,8 +5,8 @@ const app = express();
 app.use(express.static("public"));
 
 // API example (optional)
-app.get("/", (req, res) => {
-  res.send("Welcome to my Node App running on EKS 🚀");
+app.get("/api/status", (req, res) => {
+  res.json({ status: "running" });
 });
 
 
