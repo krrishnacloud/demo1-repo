@@ -1,6 +1,8 @@
 name: CI/CD
-on: push
-    workflow_dispatch:
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
 
 env:
    REPOSITORY_URL: ${{ vars.AWS_ECR_REPOSITORY_URL }}
