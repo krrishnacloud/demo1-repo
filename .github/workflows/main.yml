@@ -48,10 +48,7 @@ jobs:
             --region ap-south-1 \
             --name ekscluster
 
-      - name: create deployment and service
-        run: |
-              kubectl apply -f kubernetes/deployment.yml
-              kubectl apply -f kubernetes/service.yml
+      
 
         
 
