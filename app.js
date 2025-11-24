@@ -5,9 +5,10 @@ const app = express();
 app.use(express.static("public"));
 
 // API example (optional)
-app.get("/api/status", (req, res) => {
-  res.json({ status: "running" });
+app.get("/", (req, res) => {
+  res.send("Welcome to my Node App running on EKS 🚀");
 });
+
 
 // MUST match Dockerfile exposed port
 const PORT = process.env.PORT || 3000;
