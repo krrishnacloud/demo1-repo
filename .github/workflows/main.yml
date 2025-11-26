@@ -48,10 +48,14 @@ jobs:
 
       - name: Apply deployment to EKS
         run: kubectl apply -f kubernetes/deployment.yml
+      - name: Commit updated deployment
+        run: |
+            git config --global user.email "krishavemul423@gmail.com"
+            git config --global user.name "krrishnacloud"
+            git add kubernetes/deployment.yml
+            git commit -m "Update deployment image to ${COMMIT_ID}"
+            git push
 
-
-      - name: Apply to EKS
-        run: kubectl apply -f kubernetes/deployment.yml
 
       
 
