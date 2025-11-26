@@ -47,6 +47,8 @@ jobs:
           aws eks update-kubeconfig \
             --region ap-south-1 \
             --name eksclluster
+      - name: Apply to EKS
+        run: kubectl apply -f kubernetes/deployment.yml
 
       
 
