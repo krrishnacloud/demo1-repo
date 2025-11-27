@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
         - name: web-portfolio
-          image: 078724664036.dkr.ecr.ap-south-1.amazonaws.com/ecr/demo-repo:cbb14d4
+          image: 078724664036.dkr.ecr.ap-south-1.amazonaws.com/ecr/demo-repo:364f652
           ports:
             - containerPort: 3000
